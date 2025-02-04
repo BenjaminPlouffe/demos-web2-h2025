@@ -9,7 +9,8 @@ Références utiles
 */
 
 // Importer la classe Personne
-
+// import Personne from "./Personne";
+import {Personne} from "./Personne";
 
 // Création d'objets avec la classe Personne
 const personne1 = new Personne("Maxime", 44);
@@ -19,12 +20,21 @@ const personne4 = new Personne("Alice", 22);
 const personne5 = new Personne("Zoé", 31);
 const personne6 = new Personne("Bob", 57);
 
+
+
 // EXERCICE
 // a) Mettre les objets Personne dans un tableau
-
+const personnes = [personne1,personne2,personne3,personne4,personne5,personne6,]
 
 // b) Boucle for... of sur le tableau pour appeler .afficherDetails() de chacun des objets
-
+for(const personne of personnes){
+    personne.afficherDetails();
+}
 
 // c) Trier les personnes du tableau par ordre alphabétique inverse
-
+// si on souhaite ne pas modifier le tableau original on peut en faire une copie rapidemant avec .map()
+const copiePersonnes = personnes.map(element => element)
+personnes.sort( (elm1,elm2) => elm1.nom.localeCompare(elm2.nom) );
+personnes.reverse();
+console.log(personnes);
+console.log(copiePersonnes);

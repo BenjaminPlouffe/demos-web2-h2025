@@ -114,9 +114,9 @@ chien.type = "Chien";
 chien.afficherType();
 
 // 11. Fonction constructeur pour créer des objets
-function Personne(nom='Inconnu', age=0) {
-    this.nom = nom;
-    this.age = age;
+function Personne(_nom='Inconnu', _age=0) {
+    this.nom = _nom;
+    this.age = _age;
     this.afficherDetails = function() {
         console.log(`11. Nom : ${this.nom}, Âge : ${this.age}`);
     };
@@ -128,14 +128,17 @@ personne5.afficherDetails();
 
 // EXERCICE : 
 // a) Mettre les 5 objets (personne1 à personne5) dans un tableau appelé 'personnes'
-
-
+const personnes = [personne1,personne2,personne3,personne4,personne5];
+console.log(personnes);
 // b) Calculer l'âge moyen (avec .reduce())
 
+    let sommeAgesTableau = personnes.reduce((sommeAges, element) => sommeAges +element.age, 0);
+    console.log("Âge moyen des personnes du tableau", sommeAgesTableau/personnes.length, "ans. ");
 
 
 // Tous les objets qu'on a créés sont des instances de la classe Object
 console.log(personne1 instanceof Object, personne2 instanceof Object, personne3 instanceof Object, personne4 instanceof Object, personne5 instanceof Object); // true
+console.log(personne4 instanceof Personne);
 console.log(typeof personne1, typeof personne2, typeof personne3, typeof personne4, typeof personne5); // object
 
 // Et maintenant... les CLASSES! 
